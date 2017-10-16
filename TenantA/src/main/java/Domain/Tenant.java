@@ -2,17 +2,13 @@ package Domain;
 
 import java.io.Serializable;
 
-public class Tenant {
-
-
-import java.io.Serializable;
-
 
     public class Tenant implements Serializable {
         private String id;
         private String firstname;
         private String lastname;
         private int apartmntno;
+
         public String getId() {
             return id;
         }
@@ -33,40 +29,39 @@ import java.io.Serializable;
         }
 
         public Tenant(Builder builder) {
-            this.age = builder.age;
             this.id = builder.id;
             this.firstname = builder.firstname;
             this.lastname = builder.lastname;
         }
 
-        public static class Builder{
+        public static class Builder {
             private String id;
             private String firstname;
             private String lastname;
-            private int age;
+            private int apartmntno;
 
-            public Builder id(String value){
+            public Builder id(String value) {
                 this.id = value;
                 return this;
             }
 
-            public Builder firstname(String value){
+            public Builder firstname(String value) {
                 this.firstname = value;
                 return this;
             }
 
-            public Builder lastname(String value){
+            public Builder lastname(String value) {
                 this.lastname = value;
                 return this;
             }
 
-            public Builder age(int value){
-                this.age = value;
+            public Builder apartmntno(int value) {
+                this.apartmntno = value;
                 return this;
             }
 
-            public Person build(){
-                return new Person(this);
+            public Tenant build() {
+                return new Tenant(this);
             }
 
         }
@@ -76,15 +71,14 @@ import java.io.Serializable;
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
 
-            Person person = (Person) o;
+            Tenant tenant = (Tenant) o;
 
-            return id.equals(person.id);
+            return id.equals(tenant.id);
         }
 
         @Override
         public int hashCode() {
             return id.hashCode();
         }
-    }
 
-}
+    }
